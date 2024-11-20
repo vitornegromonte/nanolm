@@ -20,11 +20,21 @@ def main():
       "drop_rate": 0.1,        # Dropout rate
       "qkv_bias": False        # Query-Key-Value bias
     }
+    
+    GPT_CONFIG_2M = {
+        "vocab_size": 20000,     # Vocabulary size
+        "context_length": 512,  # Context length
+        "emb_dim": 248,          # Embedding dimension
+        "n_heads": 8,           # Number of attention heads
+        "n_layers": 8,          # Number of layers
+        "drop_rate": 0.1,        # Dropout rate
+        "qkv_bias": False        # Query-Key-Value bias
+    }
 
     torch.manual_seed(123)
     model = GPTModel(GPT_CONFIG_1M)
     model.eval()  # disable dropout
-
+ 
     start_context = "Hello, I am"
 
     tokenizer = tiktoken.get_encoding("gpt2")
